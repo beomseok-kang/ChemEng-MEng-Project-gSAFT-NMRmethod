@@ -44,10 +44,14 @@ def get_prop_arr(f, name):
     print("The property file does not exist: " + name + ".")
     return None
   result = []
-  for line in f.readlines()[1:]:
-    data = [float(i) for i in line.rstrip().split(",")[0:2]]
-    # tuple of (Temperature(K), Some Property(?))
-    result.append((data[0], data[1]))
+  f_string = f.read()
+  f_string = f_string.replace("\r", "\n")
+  for line in f_string.split("\n")[1:]:
+    try:
+      data = [float(i) for i in line.split(",")[0:2]]
+      result.append((data[0], data[1]))
+    except:
+      print("There was an issue: \"" + line + "\" cannot be converted to float.")
   return result
 
 def get_AAD_avg(prop_arr, System, prop_name):

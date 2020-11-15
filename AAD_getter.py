@@ -36,15 +36,21 @@ ref_arr = func.get_NMR_arr(NMRreference_file)
 abs_dev = func.get_avg_abs_dev(com_arr, ref_arr)
 rel_dev = func.get_avg_rel_dev(com_arr, ref_arr)
 
+print(abs_dev, rel_dev)
+
 ## properties and AAD calculation
 
 Pvap_data = func.get_prop_arr(Pvap_file, "Pvap")
 Vsatliq_data = func.get_prop_arr(Vsatliq_file, "Vsatliq")
 Vsatvap_data = func.get_prop_arr(Vsatvap_file, "Vsatvap")
 
+print(Pvap_data)
+print(Vsatliq_data)
+print(Vsatvap_data)
+
 Pvap_AAD = func.get_AAD_avg(Pvap_data, Sys, "VapourPressure")
-Vsatvap_AAD = func.get_AAD_avg(Vsatliq_data, Sys, "SaturationLiquidDensity")
-Vsatliq_AAD = func.get_AAD_avg(Vsatvap_data, Sys, "SaturationVapourDensity")
+Vsatliq_AAD = func.get_AAD_avg(Vsatliq_data, Sys, "SaturationLiquidDensity")
+Vsatvap_AAD = func.get_AAD_avg(Vsatvap_data, Sys, "SaturationVapourDensity")
 
 ## record
 
