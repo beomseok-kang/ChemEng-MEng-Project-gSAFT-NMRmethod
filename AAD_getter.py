@@ -1,6 +1,8 @@
 import gSAFTmm
 import func_lib as func
 
+recorder = "beom"
+
 compound_name = raw_input("Please put in the compound name.\n")
 reference_name = raw_input("Please put in the reference molecule name.\n")
 
@@ -53,7 +55,7 @@ for isRel in [True, False]:
     if not AAD:
       print("The property \"" + prop + "\" does not have a AAD value available, so the data hasn't been recorded.")
       continue
-    func.record(prop, isRel, compound_name, dev, AAD)
+    func.record(prop, isRel, recorder, compound_name, dev, AAD)
 
 print(
   """

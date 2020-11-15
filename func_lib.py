@@ -63,7 +63,7 @@ def get_AAD_avg(prop_arr, System, prop_name):
 
 ### Record the data
 
-def record(prop, isRel, compound, dev, AAD):
-  file_dir = "./" + prop + "_AAD_" + ("rel" if isRel else "abs") + "_dev.csv"
+def record(prop, isRel, who, compound, dev, AAD):
+  file_dir = "./record/" + who + "/" + prop + "_AAD_" + ("rel" if isRel else "abs") + "_dev.csv"
   with open(file_dir, "a") as f:
     f.write(compound + ',' + str(dev) + "," + str(AAD) + "\n")

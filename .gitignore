@@ -2,3 +2,5 @@
 *.pyc
 *.xml
 /data/*/*.csv
+/record/*/*.csv
+/result/*.csv
