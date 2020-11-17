@@ -1,6 +1,10 @@
 *.csv
 *.pyc
 *.xml
+*.xlsx
+
+tester.py
+
 /data/*/*.csv
 /record/*/*.csv
 /result/*.csv

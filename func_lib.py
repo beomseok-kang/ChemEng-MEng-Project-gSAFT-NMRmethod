@@ -11,8 +11,13 @@ def get_NMR_arr(f):
   if not f:
     raise ValueError("The NMR data does not exist. Please try again.")
   result = []
-  for line in f.readlines()[1:]:
-    result.append(float(line.rstrip().split(",")[1]))
+  f_string = f.read()
+  f_string = f_string.replace("\r", "\n")
+  for line in f_string.split("\n")[1:]:
+    try:
+      result.append(float(line.split(",")[1]))
+    except:
+      print("There was an issue: \"" + line + "\" cannot be converted to float.")
   return result
 
 def get_avg_abs_dev(com_arr, ref_arr):
@@ -68,6 +73,6 @@ def get_AAD_avg(prop_arr, System, prop_name):
 ### Record the data
 
 def record(prop, isRel, who, compound, dev, AAD):
-  file_dir = "./record/" + who + "/" + prop + "_AAD_" + ("rel" if isRel else "abs") + "_dev.csv"
+  file_dir = "./" + ("record/" + who + "/" if who == "beom" else "") + prop + "_AAD_" + ("rel" if isRel else "abs") + "_dev.csv"
   with open(file_dir, "a") as f:
     f.write(compound + ',' + str(dev) + "," + str(AAD) + "\n")
