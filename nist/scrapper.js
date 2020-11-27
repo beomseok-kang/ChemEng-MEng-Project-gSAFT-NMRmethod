@@ -72,12 +72,20 @@ array.forEach((el) => {
   if (innerText.includes("Phase boundary pressure")) {
     availables.pvap.isThere = true;
   } else if (innerText.includes("Density")) {
-    const densities = colToArr(el.children[1].children);
-    for (let i = 0; i < densities.length; i++) {
-      const dEl = densities[i];
-      if (dEl.innerText.includes("L, G")) {
+    if (el.children[1]) {
+      const densities = colToArr(el.children[1].children);
+      for (let i = 0; i < densities.length; i++) {
+        const dEl = densities[i];
+        if (dEl.innerText.includes("L, G")) {
+          availables.satliq.isThere = true;
+        } else if (dEl.innerText.includes("G, L")) {
+          availables.satvap.isThere = true;
+        }
+      }
+    } else {
+      if (innerText.includes("L, G")) {
         availables.satliq.isThere = true;
-      } else if (dEl.innerText.includes("G, L")) {
+      } else if (innerText.includes("G, L")) {
         availables.satvap.isThere = true;
       }
     }

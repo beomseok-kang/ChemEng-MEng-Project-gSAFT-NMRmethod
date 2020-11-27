@@ -1,0 +1,20 @@
+* some thermodynamic data from NIST is only based on predictive method.
+
+e.g. 2-hydroxyhexanoic acid
+
+list:
+
+2-hydroxyhexanoic acid
+
+
+* some NMR data are obtained by additivity rule
+
+list:
+1.3-pentanediol
+1.4-pentanediol
+2.4-pentanediol
+2.3-pentanediol
+hexane-2-ol-1-oic acid
+1.7-heptanedioic acid
+2-methylhexanedioic acid
+3-pentanol
